@@ -1,6 +1,7 @@
 package storage
 
 import (
+	"database/sql"
 	"fmt"
 	"log"
 	"sync"
@@ -62,5 +63,20 @@ func newMySqlDB() *gorm.DB {
 
 		fmt.Println("Conectado a MySQL.")
 	})
+	return db
+}
+
+func StringToNull(s string) sql.NullString {
+	var nullString sql.NullString
+	if s == "" {
+		nullString.Valid = false
+	} else {
+		nullString.Valid = true
+		nullString.String = s
+	}
+	return nullString
+}
+
+func DB() *gorm.DB {
 	return db
 }

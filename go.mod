@@ -1,4 +1,4 @@
-module github.com/matisidler/go-db-gorm
+module github.com/matisidler/go-db-gorm.git
 
 go 1.16
 
